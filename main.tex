@@ -1,0 +1,392 @@
+\documentclass[12pt]{article}
+\usepackage[authoryear,round]{natbib}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{lipsum}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{xcolor}
+\definecolor{Bleu}{RGB}{0,0,204}
+\definecolor{Violet}{RGB}{102,0,204}
+\definecolor{Rouge}{RGB}{204,0,0}
+\definecolor{Highlight}{RGB}{251,0,0}
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+colorlinks,
+  citecolor=Bleu,
+  linkcolor=Bleu,
+  urlcolor=Violet} 
+
+\usepackage{amsmath}
+\usepackage{amsthm,thmtools}
+\renewcommand\thmcontinues[1]{Continued}
+\usepackage{amssymb} % \mathbb
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{lscape}
+\usepackage{multirow}
+
+\usepackage{dsfont} % \mathds{1} for the indicator
+
+\usepackage{titlesec} % Used for inline section titles
+\usepackage{pifont} % for X marks 
+\usepackage{longtable} % for long tables 
+\usepackage{framed} % quotations with vertical line next to them
+\newenvironment{quotationb}{\begin{leftbar}\begin{quotation} \tt \noindent}{\end{quotation}\end{leftbar}}
+
+\newcommand{\minus}{\scalebox{0.5}[1.0]{$-$}}
+\newcommand{\VEm}{\operatorname{VE}_{\minus}}
+
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows}
+\definecolor{darkblue}{rgb}{0,0.4,0.9}
+\definecolor{gray10}{rgb}{0.1,0.1,0.1}
+\definecolor{gray20}{rgb}{0.2,0.2,0.2}
+\definecolor{gray30}{rgb}{0.3,0.3,0.3}
+\definecolor{gray40}{rgb}{0.4,0.4,0.4}
+\definecolor{gray60}{rgb}{0.6,0.6,0.6}
+\definecolor{gray80}{rgb}{0.8,0.8,0.8}
+\definecolor{gray90}{rgb}{0.9,0.9,.9}
+\definecolor{gray95}{rgb}{0.95,0.95,.95}
+\definecolor{gray96}{rgb}{0.96,0.96,.96}
+\definecolor{lgreen} {RGB}{180,210,100}
+\definecolor{dblue}  {RGB}{20,66,129}
+\definecolor{ddblue} {RGB}{11,36,69}
+\definecolor{lred}   {RGB}{220,0,0}
+\definecolor{nred}   {RGB}{224,0,0}
+\definecolor{norange}{RGB}{230,120,20}
+\definecolor{nyellow}{RGB}{255,221,0}
+\definecolor{ngreen} {RGB}{98,158,31}
+\definecolor{dgreen} {RGB}{78,138,21}
+\definecolor{nblue}  {RGB}{28,130,185}
+\definecolor{jblue}  {RGB}{20,50,100}
+\definecolor{nnyellow}{RGB}{235,200,0}
+\definecolor{purple}{RGB}{150, 0, 120}
+\definecolor{sgGreen} {RGB}{20, 180, 50}
+\definecolor{revised}{rgb}{0,0,0.9}
+\newtheorem{definition}{Definition}
+\newtheorem{result}{Result}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\declaretheorem[name=Example,qed={$\Box$}]{example}
+\declaretheorem[name=Remark,qed={$\Box$}]{remark} % can add numbered=no if don't want numbered
+\newcommand{\nl}{\newline}
+\newcommand{\pl}{\parallel}
+\newcommand{\openr}{\hbox{${\rm I\kern-.2em R}$}}
+\newcommand{\openn}{\hbox{${\rm I\kern-.2em N}$}}
+\newcommand{\logit}{\operatorname{logit}}
+\newcommand{\expit}{\operatorname{expit}}
+\newcommand{\Rem}{\operatorname{Rem}}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\supnorm}[1]{\left\lVert#1\right\rVert_{\infty,P^0}}
+\newcommand{\onenorm}[1]{\left\lVert#1\right\rVert_{1,P^0}}
+\newcommand{\twonorm}[1]{\left\lVert#1\right\rVert_{2,P^0}}
+\newcommand{\fournorm}[1]{\left\lVert#1\right\rVert_{4,P^0}}
+\newcommand{\snorm}[1]{\lVert#1\rVert} % short norm
+\def\eqd{\,{\buildrel d \over =}\,} 
+\def\noteqd{\,{\buildrel d \over \not=}\,} 
+\newcommand{\Un}{\mathbb{U}_n}
+\newcommand{\Id}{\textnormal{Id}}
+\newcommand{\IFN}{\textnormal{IF}}
+\newcommand{\CIn}{\textnormal{CI}_n}
+\newcommand{\nmin}{n_{\textnormal{min}}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\cE}{\mathbb{E}}
+\DeclareMathOperator{\VE}{VE}
+\DeclareMathOperator{\UR}{UR}
+\DeclareMathOperator{\VEobsz}{VE_{\textnormal{obs},0}}
+\DeclareMathOperator{\VEobse}{VE_{\textnormal{obs},\epsilon}}
+\DeclareMathOperator{\LB}{LB}
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\Risk}{Risk}
+\DeclareMathOperator{\wgt}{wgt}
+\newcommand{\whwgt}{\widehat{\operatorname{wgt}}}
+\DeclareMathOperator{\obs}{obs}
+\DeclareMathOperator{\Ind}{\mathds{1}}
+\newcommand{\Aclose}{U}
+\newcommand{\Hopen}{V}
+
+\newcommand{\Beta}{\textnormal{B}} % Temporary definition of \Beta until I replace all beta/Betas with theta/Theta
+
+\titleformat{\subsubsection}[runin] % inline after subsubsection
+  {\normalfont\bfseries}{\thesubsubsection}{1em}{}
+
+
+\allowdisplaybreaks
+
+
+\bibliographystyle{plainnat}
+
+\usepackage[normalem]{ulem}
+\usepackage{longtable}
+\setlength{\marginparwidth}{3.25cm}
+\usepackage{authblk}
+\renewcommand\Authands{ and }
+
+%% For algorithm 
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+\title{Statistical Analysis Plan for ``Estimation of vaginal ring efficacy using HOPE and ASPIRE clinical trials''}
+\author{}
+%\affil{}
+\date{\today}
+
+ \begin{document}
+
+% \allowdisplaybreaks
+
+
+%  \begin{document}
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+% \section{Introduction}
+
+% HIV prevention trials have reported high incidence rates (4\%-10\%) among women despite the provision of HIV risk reduction services. Due to persistent high HIV incidence, there is a need for risk assessment tools that can identify more susceptible individuals to 
+
+% \textcolor{blue}{use phrase ``open-label efficacy'' more}
+
+% \textcolor{blue}{emphasize that HOPE data can't endeavor to evaluate efficacy in the ASPIRE population}
+
+% \textcolor{blue}{check with Elizabeth about SRA for data questions}
+
+
+\section{Objectives}
+
+    The ASPIRE clinical trial (MTN-020) evaluated the HIV prevention efficacy of a vaginal ring containing the ARV drug dapivirine relative to a placebo ring. The trial showed that the ring had 27\% effectiveness \textcolor{blue}{(should we also mention the 37\% efficacy once two sites excluded?)}. The open-label extension study HOPE (MNT-025) followed women from ASPIRE who had not yet become HIV positive and who volunteered to participate. All of these women were provided access to the vaginal ring. In this work, we seek to evaluate the open-label efficacy of the vaginal ring versus placebo for the population enrolled in HOPE. Estimating this quantity is challenging due to an absence of placebo recipients enrolled in HOPE. Our analysis strategy will involve leveraging information from ASPIRE to predict the open-label HIV prevention efficacy of the ring that would have been estimable from HOPE trial data had participants been randomized to either an active or placebo arm in that trial.\footnote{\color{blue}We need to put down a more formal definition of what we mean by ``open-label efficacy'' -- in this counterfactual scenario, would the placebos be aware that they're receiving placebo? I'd think not}
+
+The subgroup of individuals who are HIV-uninfected at the end of ASPIRE may differ depending on the intervention that the individual received in ASPIRE. For example, this subgroup may be more enriched for adherent individuals in the active arm than it is in the placebo arm. As a consequence, we believe that the open-label efficacy that we consider will have the most natural interpretation when the analysis is stratified by randomization assignment in the ASPIRE trial.
+
+% It is also possible that the population that chose to enroll in HOPE after the conclusion of ASPIRE is not representative of the population that was eligible to enroll for HOPE after the end of follow-up in ASPIRE. We will therefore also evaluate the following 
+
+\subsection{Primary Objectives}
+\begin{enumerate}
+    \item\label{obj:primary} Evaluate the open-label efficacy of the vaginal ring versus placebo in the HOPE trial within subgroups defined by randomization assignment in the ASPIRE trial.%\footnote{\textcolor{blue}{stratifying in this way seems important for interpretability} since we're conditioning on each individual not being HIV infected at the beginning of the HOPE trial}
+\end{enumerate}
+
+\subsection{Secondary Objectives}
+\begin{enumerate}[resume*]
+	\item Evaluate Objective~\ref{obj:primary} within subgroups defined by age.
+	\item Estimate the survival curve for time until HIV infection for the HOPE trial study population during the HOPE trial.
+\end{enumerate}
+
+% \subsection{Exploratory Objectives}
+% \begin{enumerate}[resume*]
+% \item $\clubsuit$ Repeat Objective~\ref{obj:primary} in a counterfactual world where all individuals in ASPIRE who were HIV uninfected at the end of follow-up enrolled in HOPE.$\clubsuit$.  \textcolor{blue}{This may need to be thought about more now that there is a gap in the time between ASPIRE and HOPE. It is not clear what treatment behavior the population would have in between the two trials.  It may be better to just condition on people being uninfected at the start of HOPE}
+% \end{enumerate}
+
+
+\section{Notation}
+For each individual in our data set, we suppose that there is a true underlying HIV infection time $T$ \textcolor{blue}{(We should probably define what $T = 0$ is) (Time of enrollment in aspire)} and a right-censoring time $C$. We suppose that we observe $n$ independent copies of a tuple $X$ containing the following random variables, where $X$ is drawn from some distribution $P_0$:
+\begin{itemize}
+    \item $L(0)$: baseline covariates in ASPIRE;
+    \item $A(0)$: indicator of randomization to the active arm in ASPIRE;
+    \item $\Aclose$: time in months between when the participant enrolled in the study and when ASPIRE concluded follow-up;\footnote{ASPIRE was an event-driven trial that terminated at the later of (i) the time at which the target number of events had been reached, and (ii) the time at which the final-enrolled participant had accrued 12 months of follow-up.}
+    \item $\Hopen$: time in months at which the participant enrolled in HOPE, relative to the time at which the participant enrolled in ASPIRE;
+    \item $H(\Hopen)$: an indicator of an individual's enrollment in HOPE (necessarily $0$ if HIV infected before Month $\Hopen$);
+\item $L(\Hopen)$: covariates at the beginning of HOPE (by convention, $(0,\ldots,0)$ if $H(\Hopen)=0$);\footnote{$L(\Hopen)$ contains the same covariates as those that were measured at the beginning of ASPIRE.}
+    \item $A(\Hopen)$: indicator of randomization to the active arm in HOPE ($1$ for all individuals enrolled in HOPE, and, by convention, $0$ for all individuals with $H(\Hopen)=0$);
+    \item $\tilde{T}:= \min\{T,C\}$: length of infection-free follow-up; and
+    \item $\Delta=I\{T\le C\}$: indicator of having observed $T$.
+\end{itemize}
+For $t\in[0,\Hopen+12]$ \textcolor{blue}{(Reading the protocol, it appears that they follow patients for 13 months, although I am not sure 12 is not the correct thing to write here.)}, we also define $Y(t):= I\{T\le t\}$, where $Y(t)$ denotes an indicator of being HIV infected at Month $t$. Note that $Y(t)$ is known whenever $\Delta=1$ or $\tilde{T}\ge t$. For much of our discussion, it will prove convenient to ignore the censored nature of $Y(t)$, and instead assume that $Y(t)$ is observed. Under the assumption that $C\independent T | L(0)$, we will later show that we can properly account for the fact that $Y(t)$ is in fact missing for some individuals. %In what follows we will denote the distribution of $\tilde{X}:=\clubsuit(L(0),A(0),Y(12),Y(\Aclose),H(\Aclose),L(\Aclose),A(\Aclose),Y(\Aclose+12))$ by $\tilde{P}_0$.
+
+We also assume that there exist counterfactuals corresponding to the values these variables would take under interventions on $A(0)$, $H(\Hopen)$, and $A(\Hopen)$. In particular, we let:
+\begin{itemize}
+    \item $Y_{a(0)}(t)$, $t\in (0,\Aclose]$: the indicator of being HIV infected at Month t in a counterfactual world where the individual was randomized to the $a(0)$ arm in ASPIRE;
+    \item $H_{a(0)}(\Hopen)$: an indicator of an individual's decision to enroll in HOPE in a counterfactual world where the individual was randomized to the $a(0)$ arm in ASPIRE (necessarily $0$ if $Y_{a(0)}(\Hopen)=1$);
+    \item $L_{a(0),1}(\Hopen)$: covariates at the beginning of HOPE in a counterfactual world where the individual was randomized to the $a(0)$ arm in ASPIRE and enrolled in HOPE (by convention, $(0,\ldots,0)$ if $Y_{a(0)}(\Hopen)=1$);
+    % \item $A_{a(0),1}(\Aclose)$: indicator of randomization to the active arm in HOPE in a counterfactual world where the individual was randomized to the $a(0)$ arm in ASPIRE and enrolled in HOPE (by convention, $0$ if $Y_{a(0)}(\Aclose)=1$); and
+    \item $Y_{a(0),1,a(\Hopen)}(t)$, $t\in(\Hopen,\Hopen+12]$: the indicator of being HIV infected at Month t in a counterfactual world where the individual was randomized to the $a(0)$ arm in ASPIRE, enrolled in HOPE, and was assigned to the $a(\Hopen)$ arm in HOPE. %(by convention, $1$ if $Y_{a(0)}(\Aclose)=1$).
+\end{itemize}
+% \textcolor{red}{It is not clear to me what these 1's mean.  Is it just that they are enrolled in the hope trial?}
+
+We will use $\cE$ to denote expectations over the full data distribution of the random variable
+\begin{align*}
+    X^F&:= \Bigg(\Aclose, \Hopen, L(0),\Big(Y_{a(0)}(t) : t\in(0,\Aclose],a(0)\in\{0,1\}\Big),H_{0}(\Hopen),H_{1}(\Hopen),\\
+    &\hspace{3em} L_{a(0),1}(\Hopen),\Big(Y_{a(0),1,a(\Hopen)}(t) : t\in(\Hopen,\Hopen+12],a(0)\in\{0,1\},a(\Hopen)\in\{0,1\}\Big)\Bigg).
+\end{align*}
+
+\section{Objective~\ref{obj:primary}: open-label efficacy of the vaginal ring vs. placebo in the HOPE trial}
+We repeat the estimation strategy described in this section for $a(0)=0$ and $a(0)=1$.
+
+\subsection{Target of estimation}
+Our objective is to contrast the following two quantities:
+\begin{align}
+    \psi_{a(0),0}^F&:= \cE[Y_{a(0),1,0}(\Hopen+12)|H_{a(0)}(\Hopen)=1], \nonumber \\
+    \psi_{a(0),1}^F&:= \cE[Y_{a(0),1,1}(\Hopen+12)|H_{a(0)}(\Hopen)=1]. \label{eq:margmean}
+\end{align}
+% In addition to estimates of $\psi_{a(0),0}^F$ and $\psi_{a(0),1}^F$,\footnote{\textcolor{blue}{this estimate may differ slightly from an estimate from the HOPE trial -- is that a problem?}}
+We will report estimates of the reduction in HIV incidence in the active arm relative to the placebo arm (i) on an additive scale, yielding the contrast $\psi_{a(0),0}^F - \psi_{a(0),1}^F$, and (ii) on a multiplicative scale, yielding the contrast $1-\psi_{a(0),1}^F/\psi_{a(0),0}^F$.
+
+\subsection{Identifying assumptions}
+\textcolor{blue}{we'll fill in the $\clubsuit$'s in this section later}
+
+$\clubsuit$ usual longitudinal causal assumptions $\clubsuit$
+
+Before listing our sequential randomization assumptions, we note that, by the design of the ASPIRE trial,
+\begin{align}
+    A(0)\independent X^F. \label{eq:A0rand}
+\end{align}
+$\clubsuit$
+
+Let $\nu$ denote the conditional distribution of $L_{a(0),1}(V)$ given $ H_{a(0)}(V)$. We make the following time-constancy assumption on the relative risk of HIV infection on the active arm versus on the placebo arm:\footnote{\color{blue}The probability measure that should be plugged into the ``$\clubsuit$'' will be apparent once we give our identifiability result.}
+\begin{align}
+    \frac{\cE[Y_{1}(12)|L(0)=\ell]}{\cE[Y_{0}(12)|L(0)=\ell]}&= \frac{\cE[Y_{a(0),1,1}(\Hopen+12)|Y_{a(0)}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell]}{\cE[Y_{a(0),1,0}(\Hopen+12)|Y_{a(0)}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell]}\ \textnormal{ for a.s.-$\nu$}. \label{eq:bridging assumption}
+\end{align}
+Notably, the expectations on the right-hand side condition on being HIV uninfected at Month $\Hopen$, namely on $Y_{a(0)}(\Hopen)=0$, rather than on choosing to enroll in HOPE at Month $\Hopen$, namely on $H_{a(0)}(\Hopen)=1$. Contrast this with the definition of the marginal means in \eqref{eq:margmean}, which do condition on enrollment into the HOPE study. We decided to condition on $H_{a(0)}(\Hopen)=1$ in the definition of these marginal means so that the efficacy parameter that we study for our primary analysis has the interpretation of being the efficacy that would have been observed in the population considered in HOPE had the assigned intervention been randomized between an active ring and a placebo ring in that study. We decided not to condition on $H_{a(0)}(\Hopen)=1$ in the right-hand side above because the subset of those non-HIV infected individuals at Month $\Hopen$ in with Month $\Hopen$ covariate value $\ell$ who chose to enroll in HOPE may not be representative of all such individuals and, consequently, may have a different multiplicative efficacy for the ring intervention.\footnote{\textcolor{blue}{we should check this with a subject-matter expert and see if they actually think the above is more plausible than the variant of the above that conditions on $H_{a(0)}(\Hopen)=1$ on the right}}
+
+As we will see, \eqref{eq:bridging assumption} will make it possible to bridge results from the ASPIRE trial to learn about what the HIV incidence in the placebo arm would have been in the HOPE trial in the counterfactual world where a placebo arm had been included in this trial.
+
+We note that \eqref{eq:bridging assumption} may be more plausible when $a(0)=0$, since in this case the initiation of the HOPE study represents the first time at which the individual was given access to the active intervention. When $a(0)=1$, one might conjecture that those individuals who are not HIV infected at Month $U$ may have a higher individual-level ring efficacy than those individuals who were on the active arm and became HIV infected before Month $U$, that is, that $Y_0(12)-Y_1(12)$ is often larger for the former group.\footnote{As this individual-level efficacy involves the counterfactual outcomes under both the active and placebo interventions, it is not identifiable from the observed data. Consequently, this conjecture cannot be experimentally verified without untestable assumptions.} As a consequence, \eqref{eq:bridging assumption} may not be plausible. Nonetheless, the following bound may be plausible when $a(0)=1$:
+\begin{align}
+    \frac{\cE[Y_{1}(12)|L(0)=\ell]}{\cE[Y_{0}(12)|L(0)=\ell]}&\le \frac{\cE[Y_{a(0),1,1}(\Hopen+12)|Y_{a(0)}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell]}{\cE[Y_{a(0),1,0}(\Hopen+12)|Y_{a(0)}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell]}\ \textnormal{ for a.s.-$\nu$}. \label{eq:bridging assumption bound}
+\end{align}
+We will see that, if the above holds, then a lower bound on the efficacy of the ring versus placebo in the HOPE study will be available when $a(0)=1$.
+
+We also suppose that \textcolor{blue}{(explain why...)}
+\begin{align}
+    Y_{a(0),1, a(V)}(\Hopen+12)\independent H_{a(0)}(\Hopen) | Y_{a(0)}(\Hopen)=0,L_{a(0),1}(\Hopen). \label{eq:Hindep}
+\end{align}
+
+\subsection{Identifiability result}
+By the law of total expectation, %\eqref{eq:A0rand}, and the consistency assumption,
+\begin{align}
+    &\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1] \nonumber \\
+    &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)]\ \middle|\  H_{a(0)}(\Hopen)=1\right] \nonumber \\
+    &= \int \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)=\ell]\, d\nu(\ell). %\nonumber \\
+    % &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)]\ \middle|\  H_{a(0)}(\Hopen)=1,A(0)=a(0)\right] \nonumber \\
+    % &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)]\ \middle|\  H(\Hopen)=1,A(0)=a(0)\right]. 
+    \label{eq:psia0} 
+\label{eq:psia0} 
+\end{align}
+Fix $\ell$ in the support of $\nu$. We have that
+\begin{align*}
+    &\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]} \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell] \\
+    \intertext{As $H_{a(0)}(V)=1$ implies that $Y_{a(0)}(V)=0$, we can add $Y_{a(0)}(V)=0$ to the event being conditioned on in the expectations that appear in the ratio above. Hence, the display continues as}
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell]} \\
+    &\quad \times \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    \intertext{As \eqref{eq:Hindep} holds, the display continues as}
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    \intertext{By \eqref{eq:bridging assumption}, the display continues as}
+    &= \frac{\cE[Y_{1}(12)|L(0)=\ell]}{\cE[Y_{0}(12)|L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    \intertext{By \eqref{eq:A0rand}, the display continues as}
+    &= \frac{\cE[Y_{1}(12)|A(0)=1,L(0)=\ell]}{\cE[Y_{0}(12)|A(0)=0,L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell,A(0)=a(0)] \\
+    \intertext{By the consistency assumption, the display continues as}
+    &= \underbrace{\frac{\cE[Y(12)|A(0)=1,L(0)=\ell]}{\cE[Y(12)|A(0)=0,L(0)=\ell]}}_{\equiv f(\ell)}  \underbrace{\E[Y(\Hopen+12) \mid H(\Hopen)=1, L(\Hopen)=\ell,A(0)=a(0)]}_{\equiv g(\ell)}.
+\end{align*}
+This concludes our analysis of the inner expectation in \eqref{eq:psia0}. Plugging the above into \eqref{eq:psia0} and then subsequently using \eqref{eq:A0rand} and the consistency assumption, we see that
+\begin{align*}
+    \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1]&= \cE\left[f(L_{a(0),1}(\Hopen)) g(L_{a(0),1}(\Hopen))\ \middle|\  H_{a(0)}(\Hopen)=1\right] \\
+    &= \cE\left[f(L_{a(0),1}(\Hopen)) g(L_{a(0),1}(\Hopen))\ \middle|\  A(0)=a(0),H_{a(0)}(\Hopen)=1\right] \\
+    &= \cE\left[f(L(\Hopen)) g(L(\Hopen))\ \middle|\  A(0)=a(0),H(\Hopen)=1\right].
+\end{align*}
+
+% \subsection{$\clubsuit$ OLD $\clubsuit$ Identifiability result}
+% % \begin{align*}
+% %     \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,Y_{a(0)}(\Hopen)=0]&= \frac{\cE[Y_{a(0),1,0}(\Hopen+12) I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}]}{\cE[I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}]}
+% % \end{align*}
+% % For the denominator,
+% % \begin{align*}
+% %     \cE[I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}]&= \cE[\cE[I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}\mid L(0)]].
+% % \end{align*}
+% % Combining the fact that $A(0)\independent (H_{a(0)}(\Hopen),Y_{a(0),1}(\Hopen))|L(0)$ by randomization and the consistency assumption then shows that
+% % \begin{align*}
+% %     \cE[I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}]&= \cE[\cE[I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}\mid A(0)=a(0), L(0)]] \\
+% %     &= \cE[\cE[I\{H(\Hopen)=1,Y(\Hopen)=0\}\mid A(0)=a(0), L(0)]].
+% % \end{align*}
+% % For the numerator,
+% % \begin{align*}
+% %     \cE&[Y_{a(0),1,0}(\Hopen+12) I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}] \\
+% %     &= \cE\left[\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen), Y_{a(0),1}(\Hopen), L_{a(0),1}(V)]I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}\right] \\
+% %     &= \cE\left[\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, Y_{a(0),1}(\Hopen)=0, L_{a(0),1}(V)]I\{H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\}\right].
+% % \end{align*}
+% Observe that
+% \begin{align}
+%     &\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0] \nonumber \\
+%     &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(V)]\ \middle|\  H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\right]. \label{eq:psia0} \\
+%     % &= \int \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(V)=\ell] \nonumber \\
+%     % &\hspace{3em}\times dP_{L_{a(0),1}(V)}(\ell|H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0) 
+% \end{align}
+% Supposing that \textcolor{red}{$H_{a(0)}(V)\independent Y_{a(0),1,0}(\Hopen+12) | Y_{a(0),1}(V),L_{a(0),1}(V)$}, for each $\ell$, the inner expectation writes as
+% \begin{align*}
+%   &\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, Y_{a(0),1}(\Hopen)=0, L_{a(0),1}(V)=\ell] \\
+%   &= \E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0),1}(\Hopen)=0, L_{a(0),1}(V)=\ell] \\
+%   &= \frac{\cE[Y_{0}(12)|L(0)=\ell]}{\cE[Y_{1}(12)|L(0)=\ell]}\cE[Y_{a(0),1,1}(\Hopen+12)|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell],
+% \end{align*}
+% where the latter equality holds by \eqref{eq:bridging assumption}. As $A(0)$ is randomized, we have that
+% \begin{align*}
+%     &\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, Y_{a(0),1}(\Hopen)=0, L_{a(0),1}(V)=\ell] \\
+%   &= \underbrace{\frac{\cE[Y(12)|A(0)=0,L(0)=\ell]}{\cE[Y(12)|A(0)=1,L(0)=\ell]}}_{\equiv f(\ell)}\cE[Y_{a(0),1,1}(\Hopen+12)|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell]
+% \end{align*}
+% We'll now consider the expectation that's multiplying the ratio:
+% \begin{align*}
+%     &\cE[Y_{a(0),1,1}(\Hopen+12)|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell] \\
+%     &= \cE\left[\cE[Y_{a(0),1,1}(\Hopen+12)\mid H_{a(0)}(V) = 1,Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen),L(0)]\middle|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell\right] \\
+%     &= \cE\left[\cE[Y_{a(0),1,1}(\Hopen+12)\mid H_{a(0)}(V) = 1,Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen),L(0),A(0)=a(0)]\middle|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell\right] \\
+%     &= \cE\left[\cE[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen),L(0),A(0)=a(0)]\middle|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell\right].
+% \end{align*}
+% Plugging the two preceding displays into \eqref{eq:psia0}, we have shown that
+% \begin{align*}
+%     &\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0] \\
+%     &= \cE\Bigg[f(L_{a(0),1}(V))\cE\Big[\cE\big[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen),L(0),A(0)=a(0)] \\
+%     &\hspace{16em}\big|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)\Big] \Bigg| H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0\Bigg] \\
+%     &= \cE\Bigg[f(L_{a(0),1}(V))\cE\Big[\cE\big[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen),L(0),A(0)=a(0)] \\
+%     &\hspace{16em}\big|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)\Big] \Bigg| H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0,A(0)=a(0)\Bigg] \\
+%     &= \cE\Bigg[f(L_{a(0),1}(V))\cE\Big[\cE\big[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen),L(0),A(0)=a(0)] \\
+%     &\hspace{10em}\big|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen),A(0)=a(0)\Big] \Bigg| H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0,A(0)=a(0)\Bigg] \\
+%     % &= \cE\Bigg[f(L(V))\cE\Big[\cE\big[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen),L(0),A(0)=a(0)] NO! \\ 
+%     % &\hspace{16em}\big|Y(\Hopen)=0,L(\Hopen)\Big] \Bigg| H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0,A(0)=a(0)\Bigg] NO!
+%     % &= \int \frac{\cE[Y(12)|A(0)=0,L(0)=\ell]}{\cE[Y(12)|A(0)=1,L(0)=\ell]} \nonumber \\
+%     % &\hspace{2em}\times \cE\left[\cE[Y(\Hopen+12)\mid H(V) = 1,Y(\Hopen)=0,L(\Hopen)=\ell,L(0),A(0)=a(0)]\middle|Y_{a(0),1}(\Hopen)=0,L_{a(0),1}(\Hopen)=\ell\right]  \\
+%     % &\hspace{2em}\times dP_{L_{a(0),1}(V)}(\ell|H_{a(0)}(\Hopen)=1,Y_{a(0),1}(\Hopen)=0)
+% \end{align*}
+% If we assumed that $H_{a(0)}(V)\independent L(0) | Y_{a(0),1}(V)=0,L_{a(0),1}(V)$, then we could add this conditioning to the inner expectation
+
+\subsection{Estimation strategy}
+$\clubsuit$
+
+TO DO:
+\begin{enumerate}
+    \item Derive IF
+    \item Describe how to use IPCW to deal with censoring (or do something more efficient)
+    \item Add bound to previous section --- the partial identifiability result that uses \eqref{eq:bridging assumption bound}
+    \item List covariates that we'd like to include (from protocols)
+    \item Ask Elizabeth for data sets
+    \item Add identifiability result for when $a(V)=1$
+    \item Specify how the SL will be made reproducible (see SAP for HIV project with Ernesto). Table with learners, how we'll ensure the output is stable, i.e. doesn't rely too much on choice of seed
+\end{enumerate}
+
+\newpage
+\appendix
+\section{Specifications of arguments to \texttt{ltmle} package}
+$\clubsuit$
+
+
+\end{document}
+
