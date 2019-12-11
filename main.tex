@@ -282,30 +282,45 @@ By the law of total expectation, %\eqref{eq:A0rand}, and the consistency assumpt
     % &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)]\ \middle|\  H_{a(0)}(\Hopen)=1,A(0)=a(0)\right] \nonumber \\
     % &= \cE\left[\cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1,L_{a(0),1}(\Hopen)]\ \middle|\  H(\Hopen)=1,A(0)=a(0)\right]. 
     \label{eq:psia0} 
-\label{eq:psia0} 
 \end{align}
+
 Fix $\ell$ in the support of $\nu$. We have that
-\begin{align*}
-    &\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
-    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]} \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell] \\
+\begin{align}
+    &\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \nonumber \\
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]} \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell] \nonumber \\
     \intertext{As $H_{a(0)}(V)=1$ implies that $Y_{a(0)}(V)=0$, we can add $Y_{a(0)}(V)=0$ to the event being conditioned on in the expectations that appear in the ratio above. Hence, the display continues as}
-    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell]} \\
-    &\quad \times \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1,  L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell]} \nonumber \\
+    &\quad \times \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \nonumber \\
     \intertext{As \eqref{eq:Hindep} holds, the display continues as}
-    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    &= \frac{\E[Y_{a(0),1,0}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}{\E[Y_{a(0),1,1}(\Hopen+12) \mid Y_{a(0)}(\Hopen)=0, L_{a(0),1}(\Hopen)=\ell]}\E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \nonumber \\
     \intertext{By \eqref{eq:bridging assumption}, the display continues as}
-    &= \frac{\cE[Y_{1}(12)|L(0)=\ell]}{\cE[Y_{0}(12)|L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \\
+    &= \frac{\cE[Y_{1}(12)|L(0)=\ell]}{\cE[Y_{0}(12)|L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell] \label{disp:bridge_use} \\
     \intertext{By \eqref{eq:A0rand}, the display continues as}
-    &= \frac{\cE[Y_{1}(12)|A(0)=1,L(0)=\ell]}{\cE[Y_{0}(12)|A(0)=0,L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell,A(0)=a(0)] \\
+    &= \frac{\cE[Y_{1}(12)|A(0)=1,L(0)=\ell]}{\cE[Y_{0}(12)|A(0)=0,L(0)=\ell]}  \E[Y_{a(0),1,1}(\Hopen+12) \mid H_{a(0)}(\Hopen)=1, L_{a(0),1}(\Hopen)=\ell,A(0)=a(0)] \nonumber \\
     \intertext{By the consistency assumption, the display continues as}
-    &= \underbrace{\frac{\cE[Y(12)|A(0)=1,L(0)=\ell]}{\cE[Y(12)|A(0)=0,L(0)=\ell]}}_{\equiv f(\ell)}  \underbrace{\E[Y(\Hopen+12) \mid H(\Hopen)=1, L(\Hopen)=\ell,A(0)=a(0)]}_{\equiv g(\ell)}.
-\end{align*}
+    &= \underbrace{\frac{\cE[Y(12)|A(0)=1,L(0)=\ell]}{\cE[Y(12)|A(0)=0,L(0)=\ell]}}_{\equiv f(\ell)}  \underbrace{\E[Y(\Hopen+12) \mid H(\Hopen)=1, L(\Hopen)=\ell,A(0)=a(0)]}_{\equiv g(\ell)}. \nonumber
+\end{align}
 This concludes our analysis of the inner expectation in \eqref{eq:psia0}. Plugging the above into \eqref{eq:psia0} and then subsequently using \eqref{eq:A0rand} and the consistency assumption, we see that
 \begin{align*}
-    \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1]&= \cE\left[f(L_{a(0),1}(\Hopen)) g(L_{a(0),1}(\Hopen))\ \middle|\  H_{a(0)}(\Hopen)=1\right] \\
+    \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1]&= \cE\left[f(L_{a(0),1}(\Hopen)) g(L_{a(0),1}(\Hopen))\ \middle|\  H_{a(0)}(\Hopen)=1\right]\\
     &= \cE\left[f(L_{a(0),1}(\Hopen)) g(L_{a(0),1}(\Hopen))\ \middle|\  A(0)=a(0),H_{a(0)}(\Hopen)=1\right] \\
     &= \cE\left[f(L(\Hopen)) g(L(\Hopen))\ \middle|\  A(0)=a(0),H(\Hopen)=1\right].
 \end{align*}
+
+The identifiability results for when $a(\Hopen) = 1$ is more straightforward:
+
+\begin{align*}
+    \cE[Y_{a(0),1,1}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1]&= \cE\left[Y_{a(0),1,1}(\Hopen+12) \middle|\  A(0)=a(0),H_{a(0)}(\Hopen)=1\right] \\
+    &= \cE\left[Y_{a(0),1,1}(\Hopen+12)\ \middle|\  A(0)=a(0),H(\Hopen)=1\right]\\
+    &= \cE\left[Y(\Hopen+12)\ \middle|\  A(0)=a(0),H(\Hopen)=1\right].
+\end{align*}
+
+\subsection{Partial identifiability result}
+The same logic that was used above can be applied to obtain a lower bound for efficacy if instead of assuming \eqref{eq:bridging assumption}, we assume \eqref{eq:bridging assumption bound}.  The only change that would occur is that the equality given in \eqref{eq:bridging assumption bound} would be replaced by $\geq$.  This would result in the following partially identifiable result:
+\begin{align*}
+    \cE[Y_{a(0),1,0}(\Hopen+12)\mid H_{a(0)}(\Hopen)=1]& \geq \cE\left[f(L(\Hopen)) g(L(\Hopen))\ \middle|\  A(0)=a(0),H(\Hopen)=1\right].
+\end{align*}
+
 
 % \subsection{$\clubsuit$ OLD $\clubsuit$ Identifiability result}
 % % \begin{align*}
