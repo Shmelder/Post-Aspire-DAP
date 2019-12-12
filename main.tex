@@ -1,8 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage[authoryear,round]{natbib}
-\usepackage{amssymb}
+\usepackage{amssymb, booktabs}
 \usepackage{graphicx}
 \usepackage{latexsym}
+\usepackage{array}
 \usepackage{lipsum}
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
 \usepackage[parfill]{parskip}
@@ -385,6 +386,32 @@ The same logic that was used above can be applied to obtain a lower bound for ef
 
 \subsection{Estimation strategy}
 $\clubsuit$
+
+\section{Algorithms used for Superlearner}
+Every part of our identified parameter is a conditional expectation.  While some of these conditional expectations can be estimated using empirical means, others will be more difficult due to the many variables conditioned on and the many possible values these variables can take. To estimate these conditional means so as to provide the most asymptotically efficient estimate of our parameter, we will use the superlearner.   
+
+This enseble learning methodology evaluates the performance of many different prediction algorithms based on cross validated accuracy.  Then a convex combination of these algorithms is taken to create an optimal prediction function.  
+
+The random selection of the subsets used for cross validation will lead to small changes in the estimates and standard errors each time the algorithm is run.  To minimize this randomness, the superlearner algorithm is run \textcolor{blue}{XXXX} times to and the mean across these runs is taken to reduce the random variation in our estimate.
+
+\begin{table}
+    \caption{Super Learner Algorithms used}
+\centering
+    \label{tab:SL_library}
+    \begin{tabular}{lm{9.5cm}l}
+        \toprule
+       & Description & R function \\
+       \midrule
+\textcolor{blue}{Classical Algorithms} & Logistic Regression, Main Terms & \texttt{glm}\\
+& Logistic Regression, Main and Interaction Terms & \texttt{glm}\\
+& Logistic Regression, Main Terms, Forward Selection & \texttt{stepAIC}\\
+\addlinespace
+\textcolor{blue}{Data Adaptive Algorithms} & Random Forest & \texttt{ranger}\\
+& Logistic regression Main terms with Lasso penalty & \texttt{glmnet}\\
+& Logistic regression Main and Interaction Terms with Lasso penalty & \texttt{glmnet}\\
+\bottomrule
+    \end{tabular}
+\end{table}
 
 TO DO:
 \begin{enumerate}
