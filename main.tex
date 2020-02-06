@@ -418,7 +418,19 @@ TO DO:
     \item Derive IF
     \item Describe how to use IPCW to deal with censoring (or do something more efficient)
     \item \checkmark Add bound to previous section --- the partial identifiability result that uses \eqref{eq:bridging assumption bound}
-    \item List covariates that we'd like to include (from protocols)
+    \item List covariates that we'd like to include (from protocols).  \textcolor{blue}{I am not really sure what makes a variable we would like to include (without any underlying understanding of the relationship between all the variables, why not include them all?).  At the very least, I think we should have data from the blood, urine, and pelvic samples and measures of adherence. It would also probably be useful to have data on which services they chose to receive:
+    \begin{itemize}
+    \item  Condoms
+    \item  Used/unused study VR(s)
+    \item  Provision of study VR(s)
+    \item  Digital exam by clinician to check VR placement*
+    \item  Protocol adherence
+    \item  HIV/STI risk reduction
+    \item  HIV pre- and post-test 
+    \end{itemize} 
+    Many of these variables are longitudinal, but that should be fine as this can be handled by the ltmle package.
+    }
+
     \item \checkmark Ask Elizabeth for data sets
     \item \checkmark Add identifiability result for when $a(V)=1$
     \item \checkmark Specify how the SL will be made reproducible (see SAP for HIV project with Ernesto). Table with learners, how we'll ensure the output is stable, i.e. doesn't rely too much on choice of seed
